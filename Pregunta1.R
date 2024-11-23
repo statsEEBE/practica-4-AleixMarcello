@@ -1,69 +1,31 @@
-########P(x=20)
-exp(-25)*25^20/factorial(20)
-dpois(20, 25)
-#pintemos la poisson
-
-x <- 0:40
-f <- dpois(x, 25)
-
-plot(x, f, type="h", col="red")
-
-##P(x <=20)
-ppois(20, 25)
-
-##P(18 <=x<=22)
-ppois(22, 25)- ppois(17, 25)
-
-#pintenmos la distribucion
-plot(x, ppois(x, 25), type="s", col="red")
-
-
-#mediana
-qpois(0.5, 25)
-
-#1er quartil
-qpois(0.25, 25)
-1-pexp(0.052, 25)
-
-#funcion de densidad
-t <- seq(0, 1, 0.01)
-plot(t, dexp(t, 25), type="l", col="red")
-#DISTRIBUCION
-plot(t, pexp(t, 25), type="l", col="red")
-
-
-mean(rexp(500000, 25))
-
-1/25
-
-
-
-
-
-
-
-
-
-
-
+#Sesion 4
 
 dpois(30, 25)
-exp(-25)*(25^30)/factorial(30)
+# Te hace la V.A de Poisson que es dpois(x, landa)
+(exp(-25)*25^30)/factorial(30)
 
 x <- 0:40
-plot(x, dpois(x, 25), type="h", col="red")
-plot(x, ppois(x, 25), type="s", col="red")
+dpois(x, 25)
 
-ppois(25, 25)-ppois(19, 25)
+plot(x, dpois(x,25),type="h", col= "brown")
 
-#################
+ppois(30, 25)
 
-t <- seq(0, 2, 0.01)
+# la probabilidad de que reciba 30 llamadas cuando de media me dan 25 llamadas
 
-plot(t, dexp(t, 25), type="l", col="red")
-plot(t, pexp(t, 25), type="l", col="red")
+plot(x, ppois(x, 25), type = "h", col= "red")
 
-1-pexp(0.052, 25)
+ppois(25, 25)- ppois(19, 25)
 
-mean(rexp(500000, 25))
+#####################
+
+t <- seq(0,2, 0.01)
+t
+dexp(t, 25)
+plot(t, dexp(t, 25), type= "l", col = "red") # dexp te calcula la densidad de llamadas entre 2 llamadas
+plot(t, pexp(t, 25), type= "l", col = "red")
+# pexp es la funcion de masa de probabilidad
+1- pexp(0.052, 25)
+
+mean(rexp(n = 500000,25))
 1/25
